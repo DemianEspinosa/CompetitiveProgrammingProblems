@@ -1,0 +1,39 @@
+#include <cstdio>
+#include <cmath>
+ 
+using namespace std;
+ 
+long long int T, N, M, K, items[1005], sum, ansc, ansd;
+ 
+ 
+int main() {
+	long long int i, t;
+	scanf("%lld", &T);
+	for(t = 1; t <= T; t++){
+  	scanf("%lld %lld %lld", &N, &M, &K);
+		sum = 0;
+		for(i = 1; i <= N; i++){
+			scanf("%lld", &items[i]);
+			sum += items[i];
+		}
+		ansc = items[1];
+		ansd = items[M + 1];
+		for(i = 2; i <= M; i++){
+			if(abs(N * items[i] - sum) < abs(N *ansc - sum))
+				ansc = items[i];
+			else
+				if(abs(N * items[i] - sum) == abs(N *ansc - sum) && items[i] < ansc)
+					ansc = items[i];
+		}
+ 
+		for(i = M + 2; i <= M + K; i++){
+ 
+			if(abs(N * items[i] - sum) < abs(N *ansd - sum))
+				ansd = items[i];
+			else
+				if(abs(N * items[i] - sum) == abs(N *ansd - sum) && items[i] < ansd)
+					ansd = items[i];
+		}
+		printf("Case #%lld: %lld %lld\n", t, ansc, ansd);
+	}
+}

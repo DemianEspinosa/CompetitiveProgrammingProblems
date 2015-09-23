@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1409256174 source:c:\users\samsung\documents\olimpiada de informática\codeblocks\competitive programming 3\data structures and libraries\tree-related data structures\sqrt log sin\main.cpp
+	<cstdio>
+	<cmath>
+

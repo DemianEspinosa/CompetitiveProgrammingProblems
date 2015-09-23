@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1408338032 source:c:\users\samsung\documents\olimpiada de informática\codeblocks\competitive programming 3\data structures and libraries\union-find disjoint sets\war\main.cpp
+	<cstdio>
+	<algorithm>
+

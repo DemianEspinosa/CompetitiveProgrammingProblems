@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1441471969 source:/home/demian/Documents/ACM-ICPC/Code/GCPC2010/I/main.cpp
+	<iostream>
+	<cstdio>
+	<algorithm>
+	<map>
+	<string>
+

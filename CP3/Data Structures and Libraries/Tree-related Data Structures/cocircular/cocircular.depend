@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1413065414 source:c:\users\samsung\documents\olimpiada de informática\codeblocks\competitive programming 3\data structures and libraries\tree-related data structures\cocircular\main.cpp
+	<cstdio>
+	<algorithm>
+	<map>
+
