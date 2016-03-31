@@ -94,18 +94,25 @@ int main(){
 	char sign, ineq[1005];
 	vector<PT> poli;
 	PT point1, point2, pans;
+	printf("Escriba el máximo valor de A, de B y el número de desigualdades a escribir\n");
 	while(scanf("%d %d %d", &E, &D, &N), E){
 		poli.clear();
+		printf("Para cada desigualdad escríbela de la forma ax +/- by </> c, con 0 <= a, b <= 10000, 0<= |c| <= 10000\n"); 
 		for(i = 0; i < N; i++){
 			scanf("%lf%*s %c %lf%*s %c %lf", &a[i], &sign, &b[i], &ineq[i], &c[i]);
 			if(sign == '-')
 				b[i] = -b[i];
 		}
+		printf("Escribe los coeficiente de la función objetivo a minimizar ax + by\n");
+		scanf("%lf %lf", &aobj, &bobj);
 
 		poli.push_back(PT(0, 0));
 		poli.push_back(PT(E, 0));
 		poli.push_back(PT(E, D));
 		poli.push_back(PT(0, D));
+		printf("**\n");
+		for(auto &p: poli)
+			printf("x: %lf, y: %lf \n", p.x, p.y);
 		for(i = 0; i < N; i++){
 			if(fabs(a[i]) < EPS && fabs(b[i]) < EPS){
 				if((ineq[i] == '<' && 0 < c[i]) || (ineq[i] == '>' && 0 > c[i]))
@@ -145,9 +152,9 @@ int main(){
 				//printf("get right cut\n");
 				poli = CutPolygon(poli, point1, point2).second;
 			}
-			//printf("**\n");
-			//for(auto &p: poli)
-			//	printf("x: %lf, y: %lf \n", p.x, p.y);
+			printf("**\n");
+			for(auto &p: poli)
+				printf("x: %lf, y: %lf \n", p.x, p.y);
 		}
 
 		if(i < N)
