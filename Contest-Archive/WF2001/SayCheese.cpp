@@ -43,9 +43,9 @@ void dijkstra() {
 		distan[curr.second] = curr.first;
 		if (curr.second == N+1) break;
 
-		for (int i = 0; i < adj[curr.second].size(); i++) {
-			if (!vis[adj[curr.second][i].second])
-				q.push(make_pair(distan[curr.second] + adj[curr.second][i].first, adj[curr.second][i].second));
+		for (auto e : adj[curr.second]) {
+			if (!vis[e.second])
+				q.push(make_pair(distan[curr.second] + e.first, e.second));
 		}
 	}
 }
@@ -61,8 +61,8 @@ int main() {
 		
 		for (int i = 0; i <= N; i++)
 			for (int j = i + 1; j <= N+1; j++) {
-				adj[i].push_back(make_pair(dist(i, j) - R[i] - R[j], j));
-				adj[j].push_back(make_pair(dist(i, j) - R[i] - R[j], i));
+				adj[i].push_back(make_pair(max(dist(i, j) - R[i] - R[j], 0.0), j));
+				adj[j].push_back(make_pair(max(dist(i, j) - R[i] - R[j], 0.0), i));
 			}
 
 		while (!q.empty()) q.pop();
